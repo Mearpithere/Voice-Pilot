@@ -1,0 +1,4 @@
+web: gunicorn voicepilot.wsgi:application --bind 0.0.0.0:$PORT --workers 3
+worker: celery -A voicepilot worker --loglevel=info --concurrency 4
+beat: celery -A voicepilot beat --loglevel=info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+agent: python -m agent.main start
