@@ -16,4 +16,8 @@ app.conf.beat_schedule = {
         'task': 'tasks.crm_tasks.sync_unsynced_calls',
         'schedule': 3600.0,
     },
+    'cleanup-old-recordings-daily': {
+        'task': 'tasks.recording_tasks.cleanup_old_recordings',
+        'schedule': 86400.0,  # once a day
+    },
 }
